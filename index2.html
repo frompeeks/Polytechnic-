@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astana Polytechnic - Жоғары колледжі</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .lang-switch {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .lang-switch:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s 0.2s backwards;
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            animation: fadeIn 1s;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .info-card h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Specialties */
+        .specialties-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .specialty-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .specialty-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Timeline */
+        .timeline-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            margin: 1rem 0;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .timeline-year {
+            color: #764ba2;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #667eea;
+        }
+
+        .author {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-style: italic;
+            color: #bdc3c7;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🎓 Astana Polytechnic</div>
+            <button class="lang-switch" onclick="toggleLanguage()">
+                <span id="lang-text">Русский</span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1 id="hero-title">Astana Polytechnic жоғары колледжі</h1>
+        <p id="hero-subtitle">Заманауи еңбек нарығына сәйкес келетін кәсіби құзыреттері бар мамандарды даярлау</p>
+    </div>
+
+    <section>
+        <h2 id="about-title">Колледж туралы</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3 id="card1-title">📍 Орналасқан жері</h3>
+                <p id="card1-text">Қазақстан, Астана қаласы, Сарыарқа ауданы, Бейбітшілік көшесі, 39</p>
+            </div>
+            <div class="info-card">
+                <h3 id="card2-title">📅 Құрылған жылы</h3>
+                <p id="card2-text">1994 жыл - бірнеше техникумдар базасында құрылды</p>
+            </div>
+            <div class="info-card">
+                <h3 id="card3-title">🏛️ Заңды нысаны</h3>
+                <p id="card3-text">Астана қаласы әкімдігінің шаруашылық жүргізу құқығындағы мемлекеттік коммуналдық кәсіпорны</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 id="mission-title">Миссия және стратегия</h2>
+        <div class="info-card">
+            <p id="mission-text">Біздің миссиямыз — заманауи еңбек нарығына сәйкес келетін кәсіби құзыреттері бар, үздіксіз оқуға дайын мамандарды даярлау. Даму стратегиясы цифрлық технологияларды интеграциялауды, дуальды оқытуды және индустриямен әріптестікті қамтиды.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2 id="stats-title">Біздің жетістіктер</h2>
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">30+</span>
+                <span class="stat-label" id="stat1">жыл тәжірибе</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">30,000+</span>
+                <span class="stat-label" id="stat2">түлек</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">9+</span>
+                <span class="stat-label" id="stat3">мамандық</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 id="specialties-title">Мамандықтар</h2>
+        <div class="specialties-list">
+            <div class="specialty-item">💻 <span id="spec1">Бағдарламалық қамтамасыз ету</span></div>
+            <div class="specialty-item">🔒 <span id="spec2">Ақпараттық қауіпсіздік жүйелері</span></div>
+            <div class="specialty-item">🚗 <span id="spec3">Автокөліктің техникалық қызмет көрсетуі</span></div>
+            <div class="specialty-item">🏗️ <span id="spec4">Ғимараттар мен құрылыстарды салу</span></div>
+            <div class="specialty-item">⚡ <span id="spec5">Газ жабдықтарын монтаждау</span></div>
+            <div class="specialty-item">📊 <span id="spec6">Есеп және аудит</span></div>
+            <div class="specialty-item">🎨 <span id="spec7">Дизайн және реконструкция</span></div>
+            <div class="specialty-item">📡 <span id="spec8">Радиотехника және электроника</span></div>
+            <div class="specialty-item">🤖 <span id="spec9">Мехатроника</span></div>
+        </div>
+    </section>
+
+    <section>
+        <h2 id="history-title">Тарихымыз</h2>
+        <div class="timeline-item">
+            <div class="timeline-year">1994</div>
+            <p id="history1">Колледж негізі қаланды - бірнеше техникумдар базасында құрылды</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year" id="timeline2-year">Дамуы</div>
+            <p id="history2">Негізгі корпустың қайта құрылысы жүргізілді. Халықаралық білім беру бағдарламалары енгізілді (Оңтүстік Кореямен алмасу)</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2024</div>
+            <p id="history3">30 жылдық мерейтой аталып өтілді. Оқытушылар, түлектер және колледждің әріптестері қатысты</p>
+        </div>
+    </section>
+
+    <section>
+        <h2 id="partners-title">Әріптестік және оқыту</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3 id="partner1-title">🤝 Дуальді оқыту</h3>
+                <p id="partner1-text">Колледж кәсіпорындармен ынтымақтасады, бұл студенттерге практикалық тәжірибе және жұмысқа орналасу мүмкіндігін береді</p>
+            </div>
+            <div class="info-card">
+                <h3 id="partner2-title">🏆 WorldSkills</h3>
+                <p id="partner2-text">Студенттер халықаралық және ұлттық WorldSkills чемпионаттарына қатысады</p>
+            </div>
+            <div class="info-card">
+                <h3 id="partner3-title">💰 Гранттар</h3>
+                <p id="partner3-text">Барлық мамандықтарға мемлекеттік грант алу мүмкіндігі бар. Жылдық оқу құны шамамен 370,000 ₸</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Astana Polytechnic</h3>
+            <p id="footer-address">Астана қ., Сарыарқа ауданы, Бейбітшілік к., 39</p>
+            <div class="social-links">
+                <a href="https://instagram.com/polytech.astana" target="_blank">📱 Instagram: @polytech.astana</a>
+            </div>
+            <div class="author">
+                <p id="author-text">Веб-сайтты жасаған: Кирилл Акиншин, П24-67Б тобы</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentLang = 'kk';
+
+        const translations = {
+            kk: {
+                'lang-text': 'Русский',
+                'hero-title': 'Astana Polytechnic жоғары колледжі',
+                'hero-subtitle': 'Заманауи еңбек нарығына сәйкес келетін кәсіби құзыреттері бар мамандарды даярлау',
+                'about-title': 'Колледж туралы',
+                'card1-title': '📍 Орналасқан жері',
+                'card1-text': 'Қазақстан, Астана қаласы, Сарыарқа ауданы, Бейбітшілік көшесі, 39',
+                'card2-title': '📅 Құрылған жылы',
+                'card2-text': '1994 жыл - бірнеше техникумдар базасында құрылды',
+                'card3-title': '🏛️ Заңды нысаны',
+                'card3-text': 'Астана қаласы әкімдігінің шаруашылық жүргізу құқығындағы мемлекеттік коммуналдық кәсіпорны',
+                'mission-title': 'Миссия және стратегия',
+                'mission-text': 'Біздің миссиямыз — заманауи еңбек нарығына сәйкес келетін кәсіби құзыреттері бар, үздіксіз оқуға дайын мамандарды даярлау. Даму стратегиясы цифрлық технологияларды интеграциялауды, дуальды оқытуды және индустриямен әріптестікті қамтиды.',
+                'stats-title': 'Біздің жетістіктер',
+                'stat1': 'жыл тәжірибе',
+                'stat2': 'түлек',
+                'stat3': 'мамандық',
+                'specialties-title': 'Мамандықтар',
+                'spec1': 'Бағдарламалық қамтамасыз ету',
+                'spec2': 'Ақпараттық қауіпсіздік жүйелері',
+                'spec3': 'Автокөліктің техникалық қызмет көрсетуі',
+                'spec4': 'Ғимараттар мен құрылыстарды салу',
+                'spec5': 'Газ жабдықтарын монтаждау',
+                'spec6': 'Есеп және аудит',
+                'spec7': 'Дизайн және реконструкция',
+                'spec8': 'Радиотехника және электроника',
+                'spec9': 'Мехатроника',
+                'history-title': 'Тарихымыз',
+                'history1': 'Колледж негізі қаланды - бірнеше техникумдар базасында құрылды',
+                'timeline2-year': 'Дамуы',
+                'history2': 'Негізгі корпустың қайта құрылысы жүргізілді. Халықаралық білім беру бағдарламалары енгізілді (Оңтүстік Кореямен алмасу)',
+                'history3': '30 жылдық мерейтой аталып өтілді. Оқытушылар, түлектер және колледждің әріптестері қатысты',
+                'partners-title': 'Әріптестік және оқыту',
+                'partner1-title': '🤝 Дуальді оқыту',
+                'partner1-text': 'Колледж кәсіпорындармен ынтымақтасады, бұл студенттерге практикалық тәжірибе және жұмысқа орналасу мүмкіндігін береді',
+                'partner2-title': '🏆 WorldSkills',
+                'partner2-text': 'Студенттер халықаралық және ұлттық WorldSkills чемпионаттарына қатысады',
+                'partner3-title': '💰 Гранттар',
+                'partner3-text': 'Барлық мамандықтарға мемлекеттік грант алу мүмкіндігі бар. Жылдық оқу құны шамамен 370,000 ₸',
+                'footer-address': 'Астана қ., Сарыарқа ауданы, Бейбітшілік к., 39',
+                'author-text': 'Веб-сайтты жасаған: Кирилл Акиншин, П24-67Б тобы'
+            },
+            ru: {
+                'lang-text': 'Қазақша',
+                'hero-title': 'Высший колледж Astana Polytechnic',
+                'hero-subtitle': 'Подготовка специалистов с профессиональными компетенциями, соответствующими современному рынку труда',
+                'about-title': 'О колледже',
+                'card1-title': '📍 Расположение',
+                'card1-text': 'Казахстан, г. Астана, район Сарыарка, ул. Бейбитшилик, 39',
+                'card2-title': '📅 Год основания',
+                'card2-text': '1994 год - создан на базе нескольких техникумов',
+                'card3-title': '🏛️ Юридическая форма',
+                'card3-text': 'Государственное коммунальное предприятие на праве хозяйственного ведения при акимате г. Астаны',
+                'mission-title': 'Миссия и стратегия',
+                'mission-text': 'Наша миссия — подготовка специалистов с профессиональными компетенциями, соответствующими современному рынку труда, готовых к непрерывному обучению. Стратегия развития включает интеграцию цифровых технологий, дуальное обучение и партнерство с индустрией.',
+                'stats-title': 'Наши достижения',
+                'stat1': 'лет опыта',
+                'stat2': 'выпускников',
+                'stat3': 'специальностей',
+                'specialties-title': 'Специальности',
+                'spec1': 'Программное обеспечение',
+                'spec2': 'Системы информационной безопасности',
+                'spec3': 'Техническое обслуживание автотранспорта',
+                'spec4': 'Строительство зданий и сооружений',
+                'spec5': 'Монтаж систем газоснабжения',
+                'spec6': 'Учет и аудит',
+                'spec7': 'Дизайн и реконструкция',
+                'spec8': 'Радиотехника и электроника',
+                'spec9': 'Мехатроника',
+                'history-title': 'Наша история',
+                'history1': 'Основание колледжа - создан на базе нескольких техникумов',
+                'timeline2-year': 'Развитие',
+                'history2': 'Проведена реконструкция главного корпуса. Внедрены международные образовательные программы (обмен с Южной Кореей)',
+                'history3': 'Отмечено 30-летие. На торжестве выступали преподаватели, выпускники и партнёры колледжа',
+                'partners-title': 'Партнёрство и обучение',
+                'partner1-title': '🤝 Дуальное обучение',
+                'partner1-text': 'Колледж сотрудничает с предприятиями, что даёт студентам практический опыт и шансы на трудоустройство',
+                'partner2-title': '🏆 WorldSkills',
+                'partner2-text': 'Студенты участвуют в международных и национальных чемпионатах WorldSkills',
+                'partner3-title': '💰 Гранты',
+                'partner3-text': 'На все специальности есть возможность получения государственного гранта. Годовая стоимость обучения примерно 370,000 ₸',
+                'footer-address': 'г. Астана, район Сарыарка, ул. Бейбитшилик, 39',
+                'author-text': 'Веб-сайт создал: Кирилл Акиншин, группа П24-67Б'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'kk' ? 'ru' : 'kk';
+            updateContent();
+        }
+
+        function updateContent() {
+            const texts = translations[currentLang];
+            for (let key in texts) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = texts[key];
+                }
+            }
+            document.documentElement.lang = currentLang;
+        }
+
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.6s, transform 0.6s';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
